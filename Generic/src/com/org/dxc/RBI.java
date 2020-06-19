@@ -10,7 +10,7 @@ public interface RBI
 
 	public int MIN_BAL = 1000;
 	
-	public ICICI openAccount(BufferedReader buff);
+	public void openAccount(BufferedReader buff);
 	public void deposit(BufferedReader buff);
 	public void withdrawl(BufferedReader buff);
 	public void openFD(BufferedReader buff);
