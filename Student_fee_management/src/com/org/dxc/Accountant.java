@@ -169,37 +169,23 @@ String url="jdbc:mysql://localhost:3306/test";
 		
 		Connection connection = DriverManager.getConnection(url,user,password);
 		
-		String query="select *  from test.student_db where student_due=?";
-		//String query1="update test.student_db set student_due=? where student_contactNumber=?";
-		
+		String query="select student_due from test.student_db where student_name=?";
+			
 		PreparedStatement preparedStatement=connection.prepareStatement(query);
 	
-		//PreparedStatement preparedStatement1=connection.prepareStatement(query1);
+		
 
-		System.out.println("enter student due");
-		String due=buff.readLine();
-		preparedStatement.setString(1,due);
+		System.out.println("enter student name");
+		String name=buff.readLine();
+		preparedStatement.setString(1,name);
 
     
 		ResultSet resultSet=preparedStatement.executeQuery();
 		while(resultSet.next()) {
-			
-		String sName=resultSet.getString("student_name");
-		String sEmail=resultSet.getString("student_email");
-		String sCourse=resultSet.getString("student_course");
-		String sFee=resultSet.getString("student_fee");
-		String sPaid=resultSet.getString("student_paid");
-		String sDue=resultSet.getString("student_due");
-		String sAddress=resultSet.getString("student_address");
-		String sCity=resultSet.getString("student_city");
-		String sState=resultSet.getString("student_state");
-		String sCountry=resultSet.getString("student_country");
-		String sPhone=resultSet.getString("student_contactNumber");
 		
-		System.out.println("your Details are \nName: "+sName+"\nEmail: "+sEmail+"\nCouse:"+sCourse+
-				   "\nFEES:"+sFee+"\nPaid:"+sPaid+"\nDue:"+sDue+"\nAddress:"+sAddress+"\nCity:"+sCity+
-				   "\nState:"+sState+"\nCountry:"+sCountry+"\nPhone: "+sPhone);
-		  
+		String sDue=resultSet.getString("student_due");
+		
+		System.out.println(sDue);
 		}
 	}
 
